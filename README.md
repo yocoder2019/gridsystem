@@ -1,2 +1,0 @@
-# gridsystem
-First grid project
