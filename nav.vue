@@ -23,21 +23,23 @@
                 </form>
             </div>
             <div class="responsive-section">
-                <!-- help -->
-                <div class="help">
-                    <img src="assets/help.svg" alt="">
-                    <div><a href="">Help</a></div>
-                </div>
-                <!-- user account-->
-                <div class="account">
-                    <img src="https://image.flaticon.com/icons/svg/118/118781.svg" alt="">
-                    <div><a href="">Account</a></div>
-                </div>
-                <!-- cart -->
-                <div class="cart">
-                    <img src="https://image.flaticon.com/icons/svg/70/70369.svg" alt="">
-                    <div><a href="">Cart</a></div>
-                </div>
+                <ul>
+                    <!-- help -->
+                    <li class="help">
+                        <img src="https://image.flaticon.com/icons/svg/906/906794.svg" alt="">
+                        <div><a href="">Help</a></div>
+                    </li>
+                    <!-- user account-->
+                    <li class="account">
+                        <img src="https://image.flaticon.com/icons/svg/118/118781.svg" alt="">
+                        <div><a href="">Account</a></div>
+                    </li>
+                    <!-- cart -->
+                    <li class="cart">
+                        <img src="https://image.flaticon.com/icons/svg/70/70369.svg" alt="">
+                        <div><a href="">Cart</a></div>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -47,29 +49,18 @@
 
     </html>
 </template>
+
 <script>
 </script>
+
 <style>
 /* general layout */
 body {
+    max-width: 1100px;
+    margin: 0;
     margin: 0 auto !important;
     font-family: 'Open Sans', sans-serif;
     background: #F0F0F0;
-
-
-    display: grid;
-
-    grid-template-areas:
-    "header header header";
-
-    grid-template-rows: 80px 1fr 15%
-
-
-
-
-
-
-
 }
 
 h1,
@@ -82,65 +73,69 @@ h6 {
 }
 
 header {
-    grid-area: header;
-    width: 100% !important;
-    background-color: #fec200 !important;
+    background-color: #fec200;
     /*background-color: #03a9f4de;*/
 }
 
+
+
 /* smart phone & tablet portrait */
-nav>div {
-    /*text-transform: uppercase;*/
-    font-size: .9em;
-    padding: 1rem 1rem;
-}
 
 nav {
     display: grid;
+    grid-template-columns: 1fr auto auto auto;
     justify-items: start;
     text-align: center;
     box-shadow: 0 0 5px 0 #929774;
 }
 
-div>img {
-    width: 1.7em;
-    height: 1.4em;
-    color: white;
-    padding-right: 5px;
+nav>div {
+
+    /*text-transform: uppercase;*/
+    font-size: .8em;
+    padding: 1rem 1rem;
 }
+
+
+div {
+    display: block;
+    justify-content: space-between;
+}
+
+li { display: block; margin-left: 17px; }
 
 div>a {
     text-decoration: none;
     font-weight: 600;
     /*color: #292A29;*/
-    color: white;
+    color: black;
+    font-size: .9em;
 }
 
-div>img {
-    width: 1.6em;
+li>img {
+    width: 1.8em;
     height: 1.2em;
-    color: white;
-    padding-right: 5px;
+
 }
 
-*, input[type=search] {
+*,
+input[type=search] {
     box-sizing: border-box;
 }
 
-div {
-    display: block;
-    width:
-}
+* {box-sizing: border-box;}
 
 .logo {
     text-align: center;
-    font-size: 30px;
-    letter-spacing: 3px;
-    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: .2em;
 }
 
 .search {
-    order: 4;
+    display: inline;
+    max-width:100%;
+    min-width: 280px;
+
 }
 
 .search-flex-block {
@@ -149,10 +144,11 @@ div {
 }
 
 #search-field {
+    width: 500px;
+    cursor: pointer;
     background-color: #fffffff2;
     margin: 0;
     border: none;
-    width: 28rem;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     text-rendering: auto;
@@ -160,10 +156,8 @@ div {
     word-spacing: normal;
     text-indent: 0px;
     text-shadow: none;
-    display: inline-block;
     text-align: start;
 }
-
 
 .search-svg {
     background-color: white;
@@ -171,18 +165,17 @@ div {
     border-bottom-left-radius: 5px;
     padding-left: 5px;
     padding-top: 5px;
-    width: 25px;
+    width: 35px;
     padding-right: 10px;
 }
 
 #search-field:focus {
     outline: none;
     color: #AAAFAA;
-    font-size: 14px;
     letter-spacing: 1px;
+    height: auto;
+    max-width: auto;
 }
-
-
 
 #search-field::input::hover {
     background-color: #EBDAAD;
@@ -209,99 +202,79 @@ div {
     font-weight: 600;
 }
 
-.help {
+.responsive-section {
+    display: flex;
+    color: white;
+    margin-bottom: -4px;
+}
 
+.responsive-section>ul, li {
+    display: inline-flex;
+    margin-bottom: -4px;
+}
+
+.help {
     cursor: pointer;
+    margin-left: none;
 }
 
 .account {
-
     cursor: pointer;
 }
 
 .cart {
-
     cursor: pointer;
-}
-
-.responsive-section {
-    display: flex;
-    line-height: 1.1rem;
-}
-
-.responsive-section>div {
-    padding-right: 2rem;
-}
-
-
-@media (max-width: 52rem) {
-    nav {
-        display: grid;
-        grid-template-columns: 1fr auto auto auto;
-    }
-
-    .search {
-        display: none;
-    }
-
-    nav>div {
-        text-align: center;
-        justify-items: center;
-    }
-}
-
-
-@media (max-width: 20rem) {
-    nav {
-        display: grid;
-        grid-template-columns: 1fr auto auto auto;
-    }
-
-    .search {
-        display: none;
-    }
-
-    div>img {
-        display: none;
-    }
-
-    nav>div {
-        text-align: center;
-        justify-items: center;
-    }
 }
 
 
 
 /* desktop, laptop, landscape tablets */
 
-@media (min-width: 52rem) {
+@media (min-width: 33rem) {
 
     nav>div {
         display: grid;
         justify-items: center;
         text-align: center;
-        color: white;
     }
 
     nav {
-        grid-template-columns: 1fr 250fr auto auto;
+        grid-template-columns: 1fr 4fr auto;
     }
 
-    .responsive-section {
+    #search-field {
+        cursor: pointer;
+        background-color: #fffffff2;
+        margin: 0;
+        border: none;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        text-rendering: auto;
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-indent: 0px;
+        text-shadow: none;
+        text-align: start;
+    }
+
+    .search-field {
+        width: 400px;
+    }
+
+    .responsive-section > ul {
         display: flex;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-        justify-content: space-around;
-        color: white;
+        list-style-type: none;
+        text-align: center;
     }
 
-    .search {
-        order: 0;
-        max-width: 20rem;
+    li {
+        margin-left: 20px;
     }
 
-
+    .help {
+    cursor: pointer;
+    margin-left: -40px;
+}
 
 }
 </style>
